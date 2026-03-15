@@ -1,6 +1,4 @@
-CREATE DATABASE centavo_changer_monitoring;
-
-CREATE TABLE admin (
+CREATE TABLE admins (
 	admin_id SERIAL PRIMARY KEY,
 	email VARCHAR(255) UNIQUE NOT NULL,
 	hashed_password TEXT NOT NULL,

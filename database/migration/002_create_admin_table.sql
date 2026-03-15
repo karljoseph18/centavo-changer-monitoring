@@ -1,4 +1,4 @@
-CREATE TABLE storage (
+CREATE TABLE machine_storage (
 	storage_id SERIAL PRIMARY KEY,
 	one DECIMAL(10, 2),
 	five DECIMAL(10, 2),
