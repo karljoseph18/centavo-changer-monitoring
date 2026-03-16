@@ -1,4 +1,4 @@
-CREATE TABLE refill (
+CREATE TABLE refills (
 	refill_id SERIAL PRIMARY KEY,
 	refill_date TIMESTAMP DEFAULT NOW(),
 	one INT,
@@ -7,7 +7,7 @@ CREATE TABLE refill (
 	twenty INT
 );
 
-CREATE TABLE transaction (
+CREATE TABLE transactions (
 	transaction_id SERIAL PRIMARY KEY,
 	transaction_date TIMESTAMP NOT NULL,
 	centavo_inserted DECIMAL(10, 2) NOT NULL,
