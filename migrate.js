@@ -2,6 +2,12 @@ import fs from "fs/promises";
 import pool from "./config/dbConfig.js";
 import path from "path";
 
+console.log(`
++-----------------------------------------+
+|   MIGRATION IN PROGRESS... Please wait  |
++-----------------------------------------+
+    `);
+
 try {
   // create migrations table if it doesn't exist yet
   await pool.query(`
