@@ -112,7 +112,7 @@ window.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const res = await authFetch("/machine-storage", {
+    const res = await authFetch(`/machines/${machines[0].machine_id}/storage`, {
       method: "POST",
       body: JSON.stringify({ refillData }),
     });
@@ -128,15 +128,15 @@ window.addEventListener("DOMContentLoaded", async () => {
     location.reload();
   });
 
-    // Open Adjust modal when Adjust button is clicked
+  // Open Adjust modal when Adjust button is clicked
   document.addEventListener("click", (e) => {
     if (e.target.classList.contains("adjust-btn")) {
       selectedPesoValue = e.target.dataset.coin;
 
       adjustTitle.textContent = `Adjust ₱${selectedPesoValue} Coin Stock`;
       adjustLabel.textContent = `Enter a negative (-) number to subtract`;
+      adjustInput.placeholder = "Enter adjustment";
       adjustInput.value = "";
-
 
       adjustModal.classList.add("show");
     }
@@ -168,7 +168,6 @@ window.addEventListener("DOMContentLoaded", async () => {
       );
 
       if (res.status === 401) {
-        
         window.location.replace(
           "http://127.0.0.1:5501/frontend/html/login.html",
         );
@@ -192,50 +191,50 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  const refillHistory = [
-    {
-      date: "2026-06-12 09:30",
-      coin1: 50,
-      coin5: 20,
-      coin10: 10,
-      coin20: 5,
-    },
-    {
-      date: "2026-06-11 14:15",
-      coin1: 30,
-      coin5: 15,
-      coin10: 8,
-      coin20: 2,
-    },
-    {
-      date: "2026-06-10 10:45",
-      coin1: 100,
-      coin5: 50,
-      coin10: 20,
-      coin20: 10,
-    },
-  ];
+  // const refillHistory = [
+  //   {
+  //     date: "2026-06-12 09:30",
+  //     coin1: 50,
+  //     coin5: 20,
+  //     coin10: 10,
+  //     coin20: 5,
+  //   },
+  //   {
+  //     date: "2026-06-11 14:15",
+  //     coin1: 30,
+  //     coin5: 15,
+  //     coin10: 8,
+  //     coin20: 2,
+  //   },
+  //   {
+  //     date: "2026-06-10 10:45",
+  //     coin1: 100,
+  //     coin5: 50,
+  //     coin10: 20,
+  //     coin20: 10,
+  //   },
+  // ];
 
-  const historyBody = document.getElementById("refillHistoryBody");
+  // const historyBody = document.getElementById("refillHistoryBody");
 
-  if (historyBody) {
-    refillHistory.forEach((refill) => {
-      const total =
-        refill.coin1 +
-        refill.coin5 +
-        refill.coin10 +
-        refill.coin20;
+  // if (historyBody) {
+  //   refillHistory.forEach((refill) => {
+  //     const total =
+  //       refill.coin1 +
+  //       refill.coin5 +
+  //       refill.coin10 +
+  //       refill.coin20;
 
-      historyBody.innerHTML += `
-        <tr>
-          <td>${refill.date}</td>
-          <td>${refill.coin1}</td>
-          <td>${refill.coin5}</td>
-          <td>${refill.coin10}</td>
-          <td>${refill.coin20}</td>
-          <td>${total}</td>
-        </tr>
-      `;
-    });
-  }
+  //     historyBody.innerHTML += `
+  //       <tr>
+  //         <td>${refill.date}</td>
+  //         <td>${refill.coin1}</td>
+  //         <td>${refill.coin5}</td>
+  //         <td>${refill.coin10}</td>
+  //         <td>${refill.coin20}</td>
+  //         <td>${total}</td>
+  //       </tr>
+  //     `;
+  //   });
+  // }
 });

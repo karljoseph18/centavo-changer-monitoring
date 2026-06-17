@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IoT Monitoring Dashboard</title>
     <link rel="stylesheet" href="../style/dashboard.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
@@ -14,41 +17,41 @@
     <div class="sidebar">
       <h2>IoT Dashboard</h2>
       <ul>
-  <li class="active">
-    <a href="dashboard.html">
-      <i class="fas fa-chart-line"></i>
-      <span>Dashboard</span>
-    </a>
-  </li>
+        <li class="active">
+          <a href="dashboard.html">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
 
-  <li>
-    <a href="transactions.html">
-      <i class="fas fa-receipt"></i>
-      <span>Transactions</span>
-    </a>
-  </li>
+        <li>
+          <a href="transactions.html">
+            <i class="fas fa-receipt"></i>
+            <span>Transactions</span>
+          </a>
+        </li>
 
-  <li>
-    <a href="storage.html">
-      <i class="fas fa-coins"></i>
-      <span>Coin Inventory</span>
-    </a>
-  </li>
+        <li>
+          <a href="storage.html">
+            <i class="fas fa-coins"></i>
+            <span>Coin Inventory</span>
+          </a>
+        </li>
 
-  <li>
-    <a href="settings.html">
-      <i class="fas fa-gear"></i>
-      <span>Settings</span>
-    </a>
-  </li>
+        <li>
+          <a href="settings.html">
+            <i class="fas fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
 
-  <li id="logout-btn">
-    <a href="#">
-      <i class="fas fa-right-from-bracket"></i>
-      <span>Logout</span>
-    </a>
-  </li>
-</ul>
+        <li id="logout-btn">
+          <a href="#">
+            <i class="fas fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
     </div>
 
     <!-- Main -->
@@ -65,29 +68,29 @@
 
       <!-- Statistic Cards -->
       <div class="cards">
-        <div class="card">
+        <div class="card" data-format="number">
           <h3>Total 25¢ Coins Inserted</h3>
-          <h2>392</h2>
+          <h2></h2>
         </div>
 
-        <div class="card">
+        <div class="card" data-format="peso">
           <h3>Total Peso Value</h3>
-          <h2>₱98.00</h2>
+          <h2></h2>
         </div>
 
-        <div class="card">
+        <div class="card" data-format="number">
           <h3>Total Coins Dispensed</h3>
-          <h2>22</h2>
+          <h2></h2>
         </div>
 
-        <div class="card">
+        <div class="card" data-format="number">
           <h3>Today's Transactions</h3>
-          <h2>10</h2>
+          <h2></h2>
         </div>
       </div>
 
       <!-- Status Panels -->
-      <div class="status-panels">
+      <!-- <div class="status-panels">
         <div class="panel">
           <h3>Machine Status</h3>
           <p>Operational <span class="online">Online</span></p>
@@ -105,42 +108,38 @@
           <p>Active Alerts <b>0</b></p>
           <p>System Health <span class="excellent">Excellent</span></p>
         </div>
-      </div>
+      </div> -->
 
       <!-- Analytics -->
-<div class="analytics-section">
+      <div class="analytics-section">
+        <div class="chart-card large">
+          <div class="card-header">
+            <h3>This Week's Transactions</h3>
+            <span>Last 7 Days</span>
+          </div>
 
-  <div class="chart-card large">
-    <div class="card-header">
-      <h3>Weekly Transactions</h3>
-      <span>Last 7 Days</span>
-    </div>
+          <canvas id="weeklyTransactionsChart"></canvas>
+        </div>
 
-    <canvas id="weeklyTransactionsChart"></canvas>
-  </div>
+        <div class="chart-row">
+          <div class="chart-card">
+            <div class="card-header">
+              <h3>Coin Distribution</h3>
+            </div>
+            <canvas id="coinDistributionChart"></canvas>
+          </div>
 
-  <div class="chart-row">
-
-    <div class="chart-card">
-      <div class="card-header">
-        <h3>Coin Distribution</h3>
+          <!-- <div class="chart-card">
+            <div class="card-header">
+              <h3>System Activity</h3>
+            </div>
+            <canvas id="activityChart"></canvas>
+          </div>
+        </div> -->
       </div>
-      <canvas id="coinDistributionChart"></canvas>
-    </div>
-
-    <div class="chart-card">
-      <div class="card-header">
-        <h3>System Activity</h3>
-      </div>
-      <canvas id="activityChart"></canvas>
-    </div>
-
-  </div>
-
-</div>
 
       <!-- Table -->
-      <div class="table-card">
+      <!-- <div class="table-card">
         <div class="table-header">
           <h3>Recent Transactions</h3>
           <a href="transactions.html">View All →</a>
@@ -171,7 +170,7 @@
             <td>2024-01-15 09:45:12</td>
           </tr>
         </table>
-      </div>
+      </div> -->
     </div>
     <script type="module" src="../js/pages/dashboard.js"></script>
     <script type="module" src="../js/pages/logout.js"></script>

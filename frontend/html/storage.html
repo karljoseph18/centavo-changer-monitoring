@@ -5,48 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coin Inventory</title>
     <link rel="stylesheet" href="../style/storage.css" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
 
   <body>
     <div class="sidebar">
       <h2>IoT Dashboard</h2>
       <ul>
-  <li>
-    <a href="dashboard.html">
-      <i class="fas fa-chart-line"></i>
-      <span>Dashboard</span>
-    </a>
-  </li>
+        <li>
+          <a href="dashboard.html">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
 
-  <li>
-    <a href="transactions.html">
-      <i class="fas fa-receipt"></i>
-      <span>Transactions</span>
-    </a>
-  </li>
+        <li>
+          <a href="transactions.html">
+            <i class="fas fa-receipt"></i>
+            <span>Transactions</span>
+          </a>
+        </li>
 
-  <li class="active">
-    <a href="storage.html">
-      <i class="fas fa-coins"></i>
-      <span>Coin Inventory</span>
-    </a>
-  </li>
+        <li class="active">
+          <a href="storage.html">
+            <i class="fas fa-coins"></i>
+            <span>Coin Inventory</span>
+          </a>
+        </li>
 
-  <li>
-    <a href="settings.html">
-      <i class="fas fa-gear"></i>
-      <span>Settings</span>
-    </a>
-  </li>
+        <li>
+          <a href="settings.html">
+            <i class="fas fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
 
-  <li id="logout-btn">
-    <a href="#">
-      <i class="fas fa-right-from-bracket"></i>
-      <span>Logout</span>
-    </a>
-  </li>
-</ul>
+        <li id="logout-btn">
+          <a href="#">
+            <i class="fas fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
     </div>
 
     <div class="main">
@@ -79,7 +82,7 @@
       </div>
 
       <!-- RECENT REFILLS -->
-<div class="history-section">
+      <!-- <div class="history-section">
   <div class="history-header">
     <h3>Recent Refill History</h3>
     <p>Latest coin refill transactions.</p>
@@ -98,12 +101,12 @@
         </tr>
       </thead>
 
-      <tbody id="refillHistoryBody">
-        <!-- Dynamic rows -->
-      </tbody>
+      <tbody id="refillHistoryBody"> -->
+      <!-- Dynamic rows -->
+      <!-- </tbody>
     </table>
   </div>
-</div>
+</div> -->
 
       <!-- MODAL -->
       <div class="modal" id="refillModal">
@@ -151,30 +154,26 @@
         </div>
       </div>
       <div class="modal" id="adjustModal">
-  <div class="modal-content">
-    <h2 id="adjustTitle">Adjust Coin Stock</h2>
+        <div class="modal-content">
+          <h2 id="adjustTitle">Adjust Coin Stock</h2>
 
-    <div class="coin-inputs">
-      <label id="adjustLabel">Quantity</label>
+          <div class="coin-inputs">
+            <label id="adjustLabel">Quantity</label>
 
-      <input
-        type="number"
-        id="adjustInput"
-        placeholder="Enter new quantity"
-      />
-    </div>
+            <input
+              type="number"
+              id="adjustInput"
+              placeholder="Enter new quantity"
+            />
+          </div>
 
-    <div class="modal-actions">
-      <button class="cancel-btn" id="closeAdjustModal">
-        Cancel
-      </button>
+          <div class="modal-actions">
+            <button class="cancel-btn" id="closeAdjustModal">Cancel</button>
 
-      <button class="save-btn" id="saveAdjust">
-        Save Adjustment
-      </button>
-    </div>
-  </div>
-</div>
+            <button class="save-btn" id="saveAdjust">Save Adjustment</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="../js/pages/storage.js"></script>
     <script type="module" src="../js/pages/logout.js"></script>

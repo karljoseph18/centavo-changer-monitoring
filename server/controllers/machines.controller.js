@@ -38,7 +38,13 @@ export const getMachineStorage = async (req, res) => {
 };
 
 export const refillMachineStorage = async (req, res) => {
+  const { id: machineId } = req.params;
   const { refillData } = req.body;
+
+  if (!isValidNumber(machineId))
+    return res.status(400).json({
+      message: "Machine Id is required and must be a positive number",
+    });
 
   if (!refillData)
     return res.status(400).json({
@@ -64,7 +70,7 @@ export const refillMachineStorage = async (req, res) => {
 
   try {
     const refillId = await storeRefill({
-      machineId: 8,
+      machineId: machineId,
       refillData,
     });
 

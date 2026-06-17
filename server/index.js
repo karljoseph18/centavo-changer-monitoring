@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import machinesRoutes from "./routes/machines.route.js";
 import adjustmentsRoutes from "./routes/adjustments.route.js";
+import dashboardRoutes from "./routes/dashboard.route.js"
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
-// routes
+// routes for transactions
 app.use("/api", transactionsRoutes);
 
 // routes for machines
@@ -24,6 +25,9 @@ app.use("/api", machinesRoutes);
 
 // routes for adjustments
 app.use("/api", adjustmentsRoutes);
+
+// routes for dashboard
+app.use("/api", dashboardRoutes)
 
 // default check
 app.use("/", (req, res) => {

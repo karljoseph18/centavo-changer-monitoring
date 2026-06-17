@@ -12,6 +12,6 @@ router.get("/machines", authenticateUser, getMachines);
 
 router.get("/machines/:id/storage", authenticateUser, getMachineStorage);
 
-router.post("/machine-storage", refillMachineStorage);
+router.post("/machines/:id/storage", authenticateUser, refillMachineStorage);
 
 export default router;
