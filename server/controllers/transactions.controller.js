@@ -2,6 +2,10 @@ import {
   fetchTransactions,
   storeNewTransaction,
 } from "../models/transactions.model.js";
+import { fetchMachineStorage } from "../models/machines.model.js";
+import { sendLowStockNotif } from "../utils/email.util.js";
+import redisClient from "../../config/redisConfig.js";
+import { getUserByMachineId } from "../models/users.model.js";
 
 export const getTransactions = async (req, res) => {
   try {
@@ -50,6 +54,36 @@ export const createTransaction = async (req, res) => {
       centavos: data.centavos,
       dispensed: data.dispensed,
     });
+
+    const storage = await fetchMachineStorage(machineId);
+    const hasLowStock = storage.some(
+      (item) => item.quantity > 0 && item.quantity <= 5,
+    );
+
+    const key = `lowStockNotified:${machineId}`;
+
+    try {
+      if (hasLowStock) {
+        const isNotified = await redisClient.get(key);
+
+        if (!isNotified) {
+          const user = await getUserByMachineId(machineId);
+
+          await sendLowStockNotif({ recipient: user.email });
+
+          // prevent from sending multiple low stock notif
+          await redisClient.set(key, "1");
+        }
+      } else {
+        // allow low stock notif sending when stock is no longer low
+        await redisClient.del(key);
+      }
+    } catch (error) {
+      console.error(
+        "Notification error - skipping notification system:",
+        error,
+      );
+    }
 
     res.status(201).json({ message: "Transaction created successfully" });
   } catch (error) {
